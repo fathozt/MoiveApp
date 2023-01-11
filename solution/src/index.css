@@ -272,3 +272,14 @@ a {
     transform: rotateX(0);
   }
 }
+
+/* Movie Details*/
+
+.container .list-group * {
+  background-color: transparent;
+  color: white;
+}
+.container .card {
+  background-color: transparent;
+  color: white;
+}

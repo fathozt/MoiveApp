@@ -32,7 +32,7 @@ export default function MoiveDetail() {
       .catch((err) => console.log(err.message));
   }, []);
   return (
-    <div className="container py-5">
+    <div className="container">
       <h1>{title}</h1>
 
       <div className="card mb-3">
