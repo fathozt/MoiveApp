@@ -9,36 +9,30 @@ export default function Navbar() {
 
   return (
     <div className="navbar">
-      <div>
-        <Link to="/">
-          <h1>React Moive App</h1>
-        </Link>
-      </div>
+      <Link to="/">
+        <h1>React Moive App</h1>
+      </Link>
+
       {currentUser ? (
-        <div className="buttonsDiv ">
+        <div className="user-info">
           <h3>{currentUser?.displayName}</h3>
           <button
-            className="btn btn btn-primary"
+            className="btn btn btn-outline-dark"
             onClick={() => {
               logOutUser(currentUser);
             }}
           >
             LOGOUT
+            <i class="bi bi-box-arrow-right m-2"></i>
           </button>
         </div>
       ) : (
         <div className="buttonsDiv">
           <button
-            className="btn btn-primary"
+            className="btn btn-outline-light"
             onClick={() => navigate("/login")}
           >
             Login
-          </button>
-          <button
-            className="btn btn-outline-primary"
-            onClick={() => navigate("/register")}
-          >
-            Register
           </button>
         </div>
       )}

@@ -14,31 +14,27 @@ export default function MovieCard({ oneMovie }) {
     "https://images.unsplash.com/photo-1581905764498-f1b60bae941a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80";
 
   return (
-    <div>
+    <div className="card-container">
       <div
+        className="movieCard"
         onClick={() =>
           currentUser
             ? navigate("/detail/" + id)
             : toastWarnNotify("You need to login to see details!")
         }
-        className="movieCard"
       >
-        <div>
-          <div>
-            <img
-              loading="layz"
-              src={poster_path ? baseImageUrl + poster_path : defaultImage}
-              alt=""
-            />
-            <div className="moiveOverview">
-              <h2>Overview</h2>
-              <p>{overview}</p>
-            </div>
-          </div>
+        <img
+          loading="layz"
+          src={poster_path ? baseImageUrl + poster_path : defaultImage}
+          alt=""
+        />
+        <div className="moiveOverview">
+          <h5>Overview</h5>
+          <p>{overview}</p>
         </div>
       </div>
       <div className="moiveTitle">
-        <h4>{original_title}</h4>
+        <p>{original_title}</p>
       </div>
     </div>
   );

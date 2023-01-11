@@ -23,7 +23,7 @@ export default function AppRouter() {
   }
 
   return (
-    <div>
+    <div className="main-container">
       <BrowserRouter>
         <Navbar />
         <Routes>

@@ -26,58 +26,73 @@ export default function Register() {
 
   return (
     <div className="forms">
-      <div className="form-image d-none d-md-block">
-        <img src={"https://picsum.photos/800/800"} alt="sample-movie" />
-      </div>
-      <div className="formInputsDiv">
-        <form className="formInputs" onSubmit={handleSubmit}>
-          <div>
-            <h3 htmlFor="firstName">First Name</h3>
-            <input
-              onChange={handleChange}
-              type="text"
-              name="firstName"
-              className="form-control"
-              placeholder="Enter your first name.."
-              required
-            />
+      <div className="Auth-form-container">
+        <form className="Auth-form" onSubmit={handleSubmit}>
+          <div className="Auth-form-content">
+            <h3 className="Auth-form-title">Register</h3>
+            <div className="form-group mt-3">
+              <label>Firs Name</label>
+              <input
+                onChange={handleChange}
+                type="text"
+                name="firstName"
+                className="form-control mt-1"
+                placeholder="Enter first name"
+                required
+              />
+            </div>
+            <div className="form-group mt-3">
+              <label>Last Name</label>
+              <input
+                onChange={handleChange}
+                type="text"
+                name="lastName"
+                className="form-control mt-1"
+                placeholder="Enter last name"
+                required
+              />
+            </div>
+            <div className="form-group mt-3">
+              <label>Email address</label>
+              <input
+                onChange={handleChange}
+                type="email"
+                name="email"
+                className="form-control mt-1"
+                placeholder="Enter email "
+                required
+              />
+            </div>
+            <div className="form-group mt-3">
+              <label>Password</label>
+              <input
+                onChange={handleChange}
+                type="password"
+                name="password"
+                className="form-control mt-1"
+                placeholder="Enter password"
+              />
+            </div>
+            <div className="d-grid gap-2 mt-4">
+              <button
+                className="btn btn-outline-dark"
+                onClick={() => navigate("/register")}
+              >
+                Register with E-mail
+              </button>
+            </div>
+            <div className="or">
+              <hr style={{ width: "45%" }} />
+              <p>or</p>
+              <hr style={{ width: "45%" }} />
+            </div>
+            <div className="d-grid gap-2 mt-2">
+              <button type="submit" className="btn btn-secondary">
+                <i className="googleIcon bi bi-google"></i>
+                Register with Google
+              </button>
+            </div>
           </div>
-          <div className="mb-3">
-            <h3 htmlFor="lastName">Last Name</h3>
-            <input
-              onChange={handleChange}
-              type="text"
-              name="lastName"
-              className="form-control"
-              placeholder="Enter your last name.."
-              required
-            />
-          </div>
-          <div>
-            <h3 htmlFor="email">Email</h3>
-            <input
-              onChange={handleChange}
-              type="email"
-              name="email"
-              className="form-control"
-              placeholder="Enter your email.."
-              required
-            />
-          </div>
-          <div>
-            <h3 htmlFor="password">Password</h3>
-            <input
-              onChange={handleChange}
-              type="password"
-              name="password"
-              className="form-control"
-              placeholder="Enter your password.."
-              required
-            />
-          </div>
-          <button className="btn btn-primary form-control" type="submit">
-            Register
-          </button>
         </form>
       </div>
     </div>

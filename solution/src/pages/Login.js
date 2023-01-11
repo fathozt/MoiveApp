@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { logInUser, signUpProvider } from "../auth/firbase";
-
 export default function Login() {
   const navigate = useNavigate();
   const [info, setInfo] = useState({
@@ -23,48 +22,65 @@ export default function Login() {
 
   return (
     <div className="forms">
-      <div className="form-image d-none d-md-block">
-        <img src={"https://picsum.photos/800/800"} alt="sample-movie" />
-      </div>
-      <div className="formInputsDiv">
-        <div className="formInputs">
-          <form onSubmit={handleSubmit}>
-            <div className="email ">
-              <h3 htmlFor="email">Email</h3>
+      <div className="Auth-form-container">
+        <form className="Auth-form" onSubmit={handleSubmit}>
+          <div className="Auth-form-content">
+            <h3 className="Auth-form-title">Sign In</h3>
+            <div className="form-group mt-3">
+              <label>Email address</label>
               <input
                 onChange={handleChange}
                 type="email"
                 name="email"
-                className="form-control"
-                placeholder="Enter your email.."
+                className="form-control mt-1"
+                placeholder="Enter email"
                 required
               />
             </div>
-            <div className="password ">
-              <h3 htmlFor="password">Password</h3>
+            <div className="form-group mt-3">
+              <label>Password</label>
               <input
                 onChange={handleChange}
                 type="password"
                 name="password"
-                className="form-control"
-                placeholder="Enter your password.."
-                required
+                className="form-control mt-1"
+                placeholder="Enter password"
               />
             </div>
-            <div className="forgotPwd" onClick={null}>
-              <a href="#">Forgot Password?</a>
+            <div className="d-grid gap-2 mt-4">
+              <button type="submit" className="btn btn-dark">
+                Sign In
+              </button>
             </div>
-            <button className="form-control" type="submit">
-              Login
-            </button>
-            <button
-              className="form-control"
-              onClick={() => signUpProvider(navigate)}
-            >
-              Continue with Google
-            </button>
-          </form>
-        </div>
+            <div className="or">
+              <hr style={{ width: "45%" }} />
+              <p>or</p>
+              <hr style={{ width: "45%" }} />
+            </div>
+            <div className="d-grid gap-2 mt-2">
+              <button
+                type="submit"
+                onClick={() => signUpProvider(navigate)}
+                className="btn btn-secondary"
+              >
+                <i className="googleIcon bi bi-google"></i>
+                Login with Google
+              </button>
+            </div>
+            <div className="d-grid gap-2 mt-2">
+              <button
+                className="btn btn-outline-dark"
+                onClick={() => navigate("/register")}
+              >
+                Register
+              </button>
+            </div>
+
+            <p className="forgot-password text-right mt-3">
+              Forgot <a href="#_">password?</a>
+            </p>
+          </div>
+        </form>
       </div>
     </div>
   );

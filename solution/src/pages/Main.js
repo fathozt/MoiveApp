@@ -16,7 +16,7 @@ export default function Main() {
   const searchMovie = () => {
     if (!currentUser) {
       toastWarnNotify("You need to login to make search!");
-    } else if (movieName.current.value == "") {
+    } else if (movieName.current.value === "") {
       toastWarnNotify("Enter some text!");
     } else {
       setLoading(true);
@@ -47,15 +47,11 @@ export default function Main() {
 
   return (
     <div className="main-content">
-      <div className="seachBar">
-        <form onSubmit={(e) => e.preventDefault()} className="seachBar">
-          <input
-            type="text"
-            placeholder="Search some movies. . ."
-            ref={movieName}
-          />
+      <div className="searchBar">
+        <form onSubmit={(e) => e.preventDefault()} className="searchBarForm">
+          <input type="text" placeholder="Search some movies" ref={movieName} />
           <button
-            className="btn btn-outline-primary"
+            className="btn btn-outline-dark"
             onClick={() => searchMovie()}
           >
             SEARCH
