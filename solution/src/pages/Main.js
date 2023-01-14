@@ -47,17 +47,12 @@ export default function Main() {
 
   return (
     <div className="main-content">
-      <div className="searchBar">
-        <form onSubmit={(e) => e.preventDefault()} className="searchBarForm">
-          <input type="text" placeholder="Search some movies" ref={movieName} />
-          <button
-            className="btn btn-outline-dark"
-            onClick={() => searchMovie()}
-          >
-            SEARCH
-          </button>
-        </form>
-      </div>
+      <form onSubmit={(e) => e.preventDefault()} className="searchBarForm">
+        <input type="text" placeholder="Search some movies" ref={movieName} />
+        <button className="btn btn-outline-dark" onClick={() => searchMovie()}>
+          SEARCH
+        </button>
+      </form>
 
       <div className="cards">
         {loading ? (

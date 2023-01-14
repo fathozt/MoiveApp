@@ -9,9 +9,11 @@ export default function Navbar() {
 
   return (
     <div className="navbar">
-      <Link to="/">
-        <h1>React Moive App</h1>
-      </Link>
+      <div className="navbar-h1">
+        <Link to="/">
+          <h1>React Moive App</h1>
+        </Link>
+      </div>
 
       {currentUser ? (
         <div className="user-info">
@@ -27,14 +29,12 @@ export default function Navbar() {
           </button>
         </div>
       ) : (
-        <div className="buttonsDiv">
-          <button
-            className="btn btn-outline-light"
-            onClick={() => navigate("/login")}
-          >
-            Login
-          </button>
-        </div>
+        <button
+          className="btn btn-outline-light"
+          onClick={() => navigate("/login")}
+        >
+          Login
+        </button>
       )}
     </div>
   );

@@ -24,16 +24,42 @@ html {
     rgba(245, 70, 66, 0.75),
     rgba(8, 83, 156, 0.75)
   );
-  background-repeat: space;
+  /* overflow: scroll; */
 }
 
 /* Navbar */
 
+@media (max-width: 560px) {
+  .user-info {
+    margin: auto;
+    /* flex-direction: column; */
+  }
+
+  .navbar-h1 {
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 380px) {
+  .navbar button {
+    width: 100%;
+  }
+}
+@media (max-width: 230px) {
+  .user-info {
+    flex-direction: column;
+  }
+  .user-info * {
+    margin: 0;
+  }
+}
+
 .navbar {
+  width: 100%;
   max-width: 1200px;
   display: flex;
-  justify-content: space-between;
-  background-color: transparent !important;
+  justify-content: space-around;
+  background-color: transparent;
   color: white;
   margin: auto;
 }
@@ -41,27 +67,35 @@ a {
   text-decoration: none !important;
 }
 .navbar h1 {
-  display: flex;
   color: white;
-  margin-left: 2rem;
+  margin: 1rem;
+}
+.navbar h3 {
+  text-align: center;
+  color: white;
+  margin: 1rem auto;
+}
+
+.navbar button {
+  margin: 1rem;
+  font-weight: 500;
 }
 
 .user-info {
   display: flex;
-  gap: 1rem;
-  margin: 2rem;
-}
-
-.user-info button {
-  font-weight: 500;
-}
-
-.searchBar {
-  display: flex;
-  justify-content: center;
   align-items: center;
 }
 
+.user-info h3 {
+  margin: auto;
+}
+
+.searchBarForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
 .searchBarForm > input {
   max-width: 100%;
   margin: 2rem;
@@ -192,11 +226,26 @@ a {
     gap: 2rem;
   }
 }
+
+@media (max-width: 430px) {
+  .Auth-form {
+    max-width: 300px;
+  }
+  .main-container {
+    overflow: scroll;
+  }
+}
 @media (max-width: 280px) {
   .cards {
     grid-template-columns: 1fr;
     justify-items: center;
     gap: 2rem;
+  }
+}
+@media (max-width: 390px) {
+  .searchBarForm button {
+    margin: 0 auto;
+    width: 90%;
   }
 }
 
@@ -231,12 +280,14 @@ a {
 }
 
 .Auth-form {
-  width: 420px;
+  width: 100%;
+  max-width: 420px;
   box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
   padding-top: 30px;
   padding-bottom: 20px;
   border-radius: 8px;
   background-color: white;
+  margin: 0 5px;
 }
 
 .Auth-form-content {
