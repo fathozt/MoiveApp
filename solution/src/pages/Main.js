@@ -25,7 +25,7 @@ export default function Main() {
           `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${movieName.current.value}`
         )
         .then((res) => {
-          if (res.data.results == []) {
+          if (res.data.results == false) {
             setMovieList(false);
           } else {
             setMovieList(res.data.results);
@@ -49,7 +49,10 @@ export default function Main() {
     <div className="main-content">
       <form onSubmit={(e) => e.preventDefault()} className="searchBarForm">
         <input type="text" placeholder="Search some movies" ref={movieName} />
-        <button className="btn btn-outline-dark" onClick={() => searchMovie()}>
+        <button
+          className="btn btn-outline-dark fw-bold my-2"
+          onClick={() => searchMovie()}
+        >
           SEARCH
         </button>
       </form>
@@ -64,8 +67,9 @@ export default function Main() {
             <span className="sr-only"></span>
           </div>
         ) : movieList === false ? (
-          <h1>There is no movie</h1>
+          <h1 className="noMovieText">There is no movie</h1>
         ) : (
+          // <h1>There is no movie</h1>
           movieList.map((movie, index) => {
             return <MovieCard key={index.toString()} oneMovie={movie} />;
           })

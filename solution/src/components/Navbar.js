@@ -7,10 +7,15 @@ export default function Navbar() {
   const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  function changeLocation(placeToGo) {
+    navigate(placeToGo, { replace: true });
+    window.location.reload();
+  }
+
   return (
     <div className="navbar">
       <div className="navbar-h1">
-        <Link to="/">
+        <Link to="/" onClick={() => changeLocation("/")}>
           <h1>React Moive App</h1>
         </Link>
       </div>
@@ -19,18 +24,18 @@ export default function Navbar() {
         <div className="user-info">
           <h3>{currentUser?.displayName}</h3>
           <button
-            className="btn btn btn-outline-dark"
+            className="btn btn btn-outline-dark fw-bold"
             onClick={() => {
               logOutUser(currentUser);
             }}
           >
             LOGOUT
-            <i class="bi bi-box-arrow-right m-2"></i>
+            <i className="bi bi-box-arrow-right m-2"></i>
           </button>
         </div>
       ) : (
         <button
-          className="btn btn-outline-light"
+          className="btn btn-outline-light fw-bold"
           onClick={() => navigate("/login")}
         >
           Login

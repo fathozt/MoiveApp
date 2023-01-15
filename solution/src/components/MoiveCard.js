@@ -29,13 +29,15 @@ export default function MovieCard({ oneMovie }) {
           alt=""
         />
         <div className="moiveOverview">
-          <h5>Overview</h5>
+          <h5>
+            <p>{original_title}</p>
+          </h5>
           <p>{overview}</p>
         </div>
       </div>
-      <div className="moiveTitle">
+      {/* <div className="moiveTitle">
         <p>{original_title}</p>
-      </div>
+      </div> */}
     </div>
   );
 }
